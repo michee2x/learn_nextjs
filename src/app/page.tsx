@@ -82,9 +82,9 @@ return (
 
 const setDB = (noteBody:any, note:any, noteData:any, setNoteData:any, todoData:any, setTodoData:any) => {
 if(note){
-setNoteData([...noteData, {text:noteBody, time:"8:00pm, November 8, 2024"}])
+setNoteData([...noteData, {text:noteBody, time:"8:00pm, November 8, 2024",}])
 } else {
-setTodoData([...todoData, noteBody])
+setTodoData([...todoData, {text:noteBody, isChecked:false}])
 }
 
 }
@@ -92,9 +92,9 @@ setTodoData([...todoData, noteBody])
 
 export default function Home() {
 const [noteData, setNoteData] = useState(
-[{text:"this is the first note", time:"8:00pm, November 8, 2024"},
-{text:"this is the first note", time:"8:00pm, November 8, 2024"},
-{text:"this is the first note", time:"8:00pm, November 8, 2024"}]
+[{text:"this is the first note", time:"8:00pm, November 8, 2024", title:"title 1"},
+{text:"this is the first note", time:"8:00pm, November 8, 2024", title:"title 2"},
+{text:"this is the first note", time:"8:00pm, November 8, 2024", title:"title 3"}]
 )
 
 const [todoData, setTodoData] = useState(

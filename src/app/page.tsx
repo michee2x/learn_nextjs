@@ -80,7 +80,7 @@ const setDB = (noteBody:any, note:any, noteData:any, setNoteData:any, todoData:a
 if(note){
 setNoteData([...noteData, {text:noteBody, time:"8:00pm, November 8, 2024"}])
 } else {
-setTodoData([...todoData, noteBody)
+setTodoData([...todoData, noteBody])
 }
 
 }

@@ -32,7 +32,7 @@ return (
 export default function Home() {
   return (
     <main className="bg-gray-50 h-screen w-screen bg-gray-900">
-  <div classNames="flex flex-col relative items-center justify-center px-6 py-8 h-full w-full lg:py-0">
+  <div className="flex flex-col relative items-center justify-center px-6 py-8 h-full w-full lg:py-0">
 
 <div className="w-full bg-gray-900 text-gray-100 flex flex-col gap-8 p-6 min-h-screen">
 <p className="text-2xl">Notes</p>

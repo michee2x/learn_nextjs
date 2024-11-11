@@ -33,9 +33,9 @@ return (
 const Notes = ({noteData, setSingleNote} : any) => {
 return (
 <>
-{ noteData.map((e: any) => {
+{ noteData.map((e: any, i: number) => {
 return (
-<div key={e} onClick={() => setSingleNote(e)} className="bg-gray-50 flex flex-col gap-2 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full min-h-16 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+<div key={i} onClick={() => setSingleNote(e)} className="bg-gray-50 flex flex-col gap-2 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full min-h-16 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
 <p className='text-lg text-white'>{e.text.slice(0,30)}...</p>
 <p className='text-xs text-gray-300'>{e.time}</p>
 
@@ -78,12 +78,12 @@ const [todoData, setTodoData] = useState(
 )
 
 const [note, setNote] = useState(true)
-const [singleNote, setSingleNote] = useState({text:"", time:""})
+const [singleNote, setSingleNote] = useState({})
 const [show, setShow] = useState(false)
 
   return (
 <>
-    <main className={`bg-gray-50 ${(singleNote.text || singleNote.time) ? "hidden" : "block"} min-h-screen  w-screen bg-gray-900`}>
+    <main className={`bg-gray-50 ${Object.keys(singleNote).length ? "hidden" : "block"} min-h-screen  w-screen bg-gray-900`}>
   <div className="flex flex-col items-center justify-center px-6 py-8 h-full w-full lg:py-0">
 
 <div className="w-full bg-gray-900 text-gray-100 flex flex-col gap-8 min-h-screen">
@@ -110,7 +110,7 @@ const [show, setShow] = useState(false)
 </div>
 </main>
 
-<main className={`${(singleNote.text || singleNote.time) ? "block" : "hidden"} w-screen min-h-screen bg-gray-900 text-gray-100`}>
+<main className={`${Object.keys(singleNote). length > 0 ? "block" : "hidden"} w-screen min-h-screen bg-gray-900 text-gray-100`}>
 
 <div className="w-full h-16 flex items-center justify-between px-3"> 
 

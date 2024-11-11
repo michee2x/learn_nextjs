@@ -123,6 +123,7 @@ const [notebody, setBody] = useState("")
 <span className="text-2xl" onClick={() => setNote(true)}><GrNotes /></span>
 <span className="text-2xl" onClick={() => setNote(false)}><RiTodoFill /></span>
 </div>
+</div>
 </main>
 
 <main className={`${(singleNote.text || singleNote.time) ? "block" : "hidden"} w-screen min-h-screen bg-gray-900 text-gray-100`}>

@@ -6,7 +6,8 @@ import Image from 'next/image'
 import {GrNotes} from 'react-icons/gr'
 import {RiTodoFill} from 'react-icons/ri'
 import {FaArrowLeft} from 'react-icons/fa'
-
+import {MdOutlineShare} from 'react-icons/md'
+import {CiMenuKebab} from 'react-icons/ci'
 
 const SearchInput = ({notes}: any) => {
 
@@ -29,12 +30,12 @@ return (
 }
 
 
-const Notes = ({noteData} : any) => {
+const Notes = ({noteData, setSingleNote} : any) => {
 return (
 <>
 { noteData.map((e: string) => {
 return (
-<div key={e} className="bg-gray-50 flex flex-col gap-2 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full min-h-16 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+<div key={e} onClick={() => setSingleNote(e)} className="bg-gray-50 flex flex-col gap-2 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full min-h-16 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
 <p className='text-lg text-white'>{e.slice(0,30)}...</p>
 <p className='text-xs text-gray-300'>8:00pm, November 8, 2024 </p>
 
@@ -81,7 +82,7 @@ const [singleNote, setSingleNote] = useState("")
 
   return (
 <>
-    <main className="bg-gray-50 min-h-screen w-screen bg-gray-900">
+    <main className={`bg-gray-50 ${singleNote ? "hidden" : "block"} min-h-screen  w-screen bg-gray-900`}>
   <div className="flex flex-col items-center justify-center px-6 py-8 h-full w-full lg:py-0">
 
 <div className="w-full bg-gray-900 text-gray-100 flex flex-col gap-8 min-h-screen">
@@ -90,7 +91,7 @@ const [singleNote, setSingleNote] = useState("")
 
 <div className="w-full mt-6 flex flex-col gap-3 h-auto">
 {
- note ? ( <Notes noteData={noteData} />) : ( <Todos todoData={todoData} />)
+ note ? ( <Notes noteData={noteData} setSingleNote={setSingleNote} />) : ( <Todos todoData={todoData} />)
 
 }
 
@@ -113,16 +114,18 @@ const [singleNote, setSingleNote] = useState("")
 <div className="w-full h-16 flex items-center justify-between px-3"> 
 
 <p className="w-24 h-full flex items-center justify-between">
-<span><FaArrowLeft /></span>
+<span onClick={() => setSingleNote("")}><FaArrowLeft /></span>
 <span>Notes</span>
 </p>
 
-<p>
-<span><FaArrowLeft /></span>
-<span><FaArrowLeft /></span>
+<p className="w-24 h-full flex items-center justify-between">
+<span><MdOutlineShare /></span>
+<span><CiMenuKebab /></span>
 
 </p>
 </div>
+
+<div className="w-full h-full bg-gray-900 px-10 px-4">{singleNote}</div>
 
  </main>
 

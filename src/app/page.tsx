@@ -30,7 +30,7 @@ return (
 )
 }
 
-const Editor = ({title, setTitle, body, setBody}:any) => {
+const Editor = ({title, setTitle, notebody, setBody}:any) => {
 return (
 <>
 <input value={title} onChange={(e:any) => setTitle(e.target.value)} type="text" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="note title pls..." required />
@@ -96,7 +96,7 @@ const [singleNote, setSingleNote] = useState({text:"", time:""})
 const [show, setShow] = useState(false)
 const [edit, setEdit] = useState(false)
 const [title, setTitle] = useState("")
-const [body, setBody] = useState("")
+const [notebody, setBody] = useState("")
 
   return (
 <>
@@ -160,13 +160,13 @@ const [body, setBody] = useState("")
 <span>Edit</span>
 </p>
 
-<p className={`w-24 ${(body && title) ? "block" : "hidden"} h-full flex items-center justify-end`} onClick={() => setEdit(false)>
+<p className={`w-24 ${(notebody && title) ? "block" : "hidden"} h-full flex items-center justify-end`} onClick={() => setEdit(false)>
 <GrStatusGood />
 </p>
 </div>
 
 <div className="w-full relative h-full bg-gray-900 px-10 px-4">
-<Editor title={title} setTitle={setTitle} body={body} setBody={setBody} />
+<Editor title={title} setTitle={setTitle} notebody={notebody} setBody={setBody} />
 </div>
 
  </main>

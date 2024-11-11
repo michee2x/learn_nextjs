@@ -98,9 +98,9 @@ const [noteData, setNoteData] = useState(
 )
 
 const [todoData, setTodoData] = useState(
-[ {text:"this is the first todo", isChecked=false},
- {text:"this is the second todo", isChecked=false},
- {text:"this is the third todo", isChecked=false}]
+[ {text:"this is the first todo", isChecked:false},
+ {text:"this is the second todo", isChecked:false},
+ {text:"this is the third todo", isChecked:false}]
 )
 
 const [note, setNote] = useState(true)

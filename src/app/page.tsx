@@ -5,6 +5,7 @@ import { useState } from 'react';
 import Image from 'next/image'
 import {GrNotes} from 'react-icons/gr'
 import {RiTodoFill} from 'react-icons/ri'
+import {FaArrowLeft} from 'react-icons/fa'
 
 
 const SearchInput = ({notes}: any) => {
@@ -76,8 +77,10 @@ const [todoData, setTodoData] = useState(
 )
 
 const [note, setNote] = useState(true)
+const [singleNote, setSingleNote] = useState("")
 
   return (
+<>
     <main className="bg-gray-50 min-h-screen w-screen bg-gray-900">
   <div className="flex flex-col items-center justify-center px-6 py-8 h-full w-full lg:py-0">
 
@@ -95,7 +98,7 @@ const [note, setNote] = useState(true)
 
 </div>
 
-<div className="w-14 text-[6rem] font-bold p-2 fixed bottom-12 mx-auto rounded-full bg-blue-400 text-white flex items-center justify-center h-14">+</div>
+<div className="w-14 text-[2rem] font-bold p-2 fixed bottom-12 mx-auto rounded-full bg-blue-400 text-white flex items-center justify-center h-14">+</div>
 
 <div className="w-full h-14 flex fixed  bottom-5 justify-between items-center text-white bg-primary-600 hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-10 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">
 <span className="text-2xl" onClick={() => setNote(true)}><GrNotes /></span>
@@ -104,5 +107,25 @@ const [note, setNote] = useState(true)
 </div>
 </div>
 </main>
+
+<main className={`${singleNote ? "block" : "hidden"} w-screen min-h-screen bg-gray-900 text-gray-100`}>
+
+<div className="w-full h-16 flex items-center justify-between px-3"> 
+
+<p className="w-24 h-full flex items-center justify-between">
+<span><FaArrowLeft /></span>
+<span>Notes</span>
+</p>
+
+<p>
+<span><FaArrowLeft /></span>
+<span><FaArrowLeft /></span>
+
+</p>
+</div>
+
+ </main>
+
+</>
   )
 }

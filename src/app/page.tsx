@@ -80,7 +80,7 @@ const [note, setNote] = useState(true)
   <div className="flex flex-col items-center justify-center px-6 py-8 h-full w-full lg:py-0">
 
 <div className="w-full bg-gray-900 text-gray-100 flex flex-col gap-8 p-6 min-h-screen">
-<p className="text-2xl">Notes</p>
+<p className="text-2xl">{note ? "Notes" : "To-do"}</p>
 <SearchInput notes={note}/>
 
 <div className="w-full mt-8 px-6 h-auto">

@@ -68,7 +68,7 @@ export default function Home() {
 const [noteData, setNoteData] = useState(
 [{text:"this is the first note", time:"8:00pm, November 8, 2024"},
 {text:"this is the first note", time:"8:00pm, November 8, 2024"},
-{text:"this is the first note", time:"8:00pm, November 8, 2024"},]
+{text:"this is the first note", time:"8:00pm, November 8, 2024"}]
 )
 
 const [todoData, setTodoData] = useState(
@@ -127,7 +127,7 @@ const [show, setShow] = useState(false)
 </div>
 
 <div className="w-full relative h-full bg-gray-900 px-10 px-4">
-<button type="submit" className={`${show ? "right-[-50px]":"right-2"} w-32 absolute top-1 h-16 bg-blue-500 text-white flex items-center justify-center`}>delete</p>
+<button type="submit" className={`${show ? "right-[-50px]":"right-2"} w-32 absolute top-1 h-16 bg-blue-500 text-white flex items-center justify-center`}>delete</button>
 
 {singleNote}</div>
 

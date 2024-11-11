@@ -59,6 +59,17 @@ return (
 </>
 )
 }
+const setTodo = (todoData:any, text: string, setTodoData:any) => {
+const newData = todoData.map((item:any) => {
+  if (item.text === text) {
+    const updatedItem = { ...item };
+    updatedItem.text = text;
+    return updatedItem;
+  }
+  return item;
+});
+setTodoData(newData)
+}
 
 
 const Todos = ({todoData, setTodoData} : any) => {
@@ -74,18 +85,6 @@ return (
 }
 </>
 )
-}
-
-const setTodo = (todoData, text, setTodoData) => {
-const newData = todoData.map(item => {
-  if (item.text === text) {
-    const updatedItem = { ...item };
-    updatedItem.text = text;
-    return updatedItem;
-  }
-  return item;
-});
-setTodoData(newData)
 }
 
 const setDB = (noteBody:any, note:any, noteData:any, setNoteData:any, todoData:any, setTodoData:any) => {

@@ -10,22 +10,34 @@ import {MdOutlineShare} from 'react-icons/md'
 import {CiMenuKebab} from 'react-icons/ci'
 import {GrStatusGood} from "react-icons/gr"
 
-const SearchInput = ({notes}: any) => {
+const SearchIterate = (note:any, setFiltered:any, search:any, noteData:any, todoData:any) => {
+  if(note && search){
+      const searchedData = noteData.filter((e:any) => e.toLowerCase().includes(search))
+      setFiltered(searchedData)
+  }
+ if(!note && search){
+      const searchedData = todoData.filter((e:any) => e.toLowerCase().includes(search))
+      setFiltered(searchedData)
+ }
+
+}
+
+const SearchInput = ({note, setFiltered, notes, search, setSearch}:any) => {
 
 return (
 
-<form className="flex items-center max-w-sm mx-auto">   
+<div className="flex items-center max-w-sm mx-auto">   
     <label className="sr-only">Search {notes ? "notes" : "to-do"}</label>
     <div className="relative w-full">
-        <input type="text" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder={`Search ${notes ? "notes" : "to-do"}...`} />
+        <input value={search} onChange={(e) => setSearch(e.target.value.toLowerCase())} type="text" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder={`Search ${notes ? "notes" : "to-do"}...`} />
     </div>
-    <button type="submit" className="p-2.5 ms-2 text-sm font-medium text-white bg-blue-700 rounded-lg border border-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+    <button type="submit" onClick={SearchIterate(note, setFiltered, search, noteData, todoData)} className="p-2.5 ms-2 text-sm font-medium text-white bg-blue-700 rounded-lg border border-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
         <svg className="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
             <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"/>
         </svg>
         <span className="sr-only">Search</span>
     </button>
-</form>
+</div>
 
 )
 }
@@ -109,7 +121,8 @@ const [show, setShow] = useState(false)
 const [edit, setEdit] = useState(false)
 const [title, setTitle] = useState("")
 const [notebody, setBody] = useState("")
-
+const [filtered, setFiltered] = useState([])
+const [search, setSearch] = useState("")
   return (
 <>
     <main className={`bg-gray-50 ${(singleNote?.text || singleNote?.time) ? "hidden" : "block"} min-h-screen  w-screen bg-gray-900`}>
@@ -117,11 +130,11 @@ const [notebody, setBody] = useState("")
 
 <div className="w-full bg-gray-900 text-gray-100 flex flex-col gap-8 min-h-screen">
 <p className="text-2xl">{note ? "Notes" : "To-do"}</p>
-<SearchInput notes={note} />
+<SearchInput note={note} setFiltered={setFiltered} notes={note} search={search} setSearch={setSearch} />
 
 <div className="w-full mt-6 flex flex-col gap-3 h-auto">
 {
- note ? ( <Notes noteData={noteData} setSingleNote={setSingleNote} />) : ( <Todos todoData={todoData} setTodoData={setTodoData} />)
+ (note && !filtered.length) ? ( <Notes noteData={noteData} setSingleNote={setSingleNote} />) : (!note && !filtered.length) ? ( <Todos todoData={todoData} setTodoData={setTodoData} /> : (note && filter) ? ( <Notes noteData={filter} setSingleNote={setSingleNote} />) : (!note && filter) ? (<Todos todoData={filtered} setTodoData={setFiltered} />) : "nothing here 💀..." )
 
 }
 

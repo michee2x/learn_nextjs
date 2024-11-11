@@ -33,8 +33,8 @@ return (
 <>
 { noteData.map((e: string) => {
 return (
-<div key={e} className="bg-gray-50 flex flex-col gap-4 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-<p className='text-xl text-white'>{e.slice(0,17)}</p>
+<div key={e} className="bg-gray-50 flex flex-col gap-4 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full h-16 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+<p className='text-xl text-white'>{e.slice(0,21)}...</p>
 <p className='text-sm text-gray-300'>8:00pm, November 8, 2024 </p>
 
 </div>
@@ -50,9 +50,9 @@ return (
 <>
 { todoData.map((e: string) => {
 return (
-<div key={e} className="bg-gray-50 flex gap-3 items-center justify-center border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+<div key={e} className="bg-gray-50 flex gap-2 items-center justify-center border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full h-16 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                     <input type="checkbox" className="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500" />
-                    <label className="ml-3 min-w-0 flex-1 text-gray-500">{e.slice(0, 16)}</label>
+                    <label className="ml-3 min-w-0 flex-1 text-gray-500">{e.slice(0, 21)}...</label>
 </div>
 )})
 }
@@ -81,11 +81,11 @@ const [note, setNote] = useState(true)
     <main className="bg-gray-50 min-h-screen w-screen bg-gray-900">
   <div className="flex flex-col items-center justify-center px-6 py-8 h-full w-full lg:py-0">
 
-<div className="w-full bg-gray-900 text-gray-100 flex flex-col gap-8 p-2 min-h-screen">
+<div className="w-full bg-gray-900 text-gray-100 flex flex-col gap-8 min-h-screen">
 <p className="text-2xl">{note ? "Notes" : "To-do"}</p>
 <SearchInput notes={note}/>
 
-<div className="w-full mt-6 px-2 h-auto">
+<div className="w-full mt-6 flex flex-col gap-3 h-auto">
 {
  note ? ( <Notes noteData={noteData} />) : ( <Todos todoData={todoData} />)
 

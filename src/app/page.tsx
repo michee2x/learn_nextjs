@@ -125,9 +125,9 @@ const [notebody, setBody] = useState("")
 
 </div>
 
-<div onClick={() => setEdit(true)} className="w-14 text-[2rem] font-bold p-2 fixed bottom-12 mx-auto rounded-full bg-blue-400 text-white flex items-center justify-center h-14">+</div>
+<div onClick={() => setEdit(true)} className="w-14 z-10 text-[2rem] font-bold p-2 fixed bottom-12 mx-auto rounded-full bg-blue-400 text-white flex items-center justify-center h-14">+</div>
 
-<div className="w-full h-14 flex fixed  bottom-5 justify-between items-center text-white bg-primary-600 hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-10 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">
+<div className="w-full w-full h-14 flex fixed  bottom-5 justify-between items-center text-white bg-blue-400 hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-10 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">
 <span className="text-2xl" onClick={() => setNote(true)}><GrNotes /></span>
 <span className="text-2xl" onClick={() => setNote(false)}><RiTodoFill /></span>
 </div>
@@ -151,7 +151,7 @@ const [notebody, setBody] = useState("")
 </div>
 
 <div className="w-full relative h-full bg-gray-900 px-10 px-4">
-<button type="submit" className={`${!show ? "h-0 w-0":"w-32 h-14"} absolute top-1 rounded-lg right-2 bg-red-600 text-white flex items-center justify-center transition-all duration-500`}>delete</button>
+<button type="submit" className={`${!show ? "h-0 w-0":"w-32 h-14"} absolute top-1 rounded-lg right-2 bg-red-600 text-white overflow-hidden flex items-center justify-center transition-all duration-500`}>delete</button>
 <p className="text-xs text-gray-200 mt-6 mb-4">{singleNote?.time}</p>
 <p className='text-lg text-gray-100'>{singleNote?.text}</p></div>
 

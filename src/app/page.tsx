@@ -30,10 +30,10 @@ return (
 )
 }
 
-const Editor = ({title, setTitle, notebody, setBody}:any) => {
+const Editor = ({title, setTitle, notebody, setBody, note}:any) => {
 return (
 <>
-<input value={title} onChange={(e:any) => setTitle(e.target.value)} type="text" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="note title pls..." required />
+<input value={title} onChange={(e:any) => setTitle(e.target.value)} type="text" className={`${note ? "block" : "hidden"}  bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500`} placeholder="note title pls..." required />
   
 
 <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Your note</label>
@@ -167,13 +167,13 @@ const [notebody, setBody] = useState("")
 <span>Edit</span>
 </p>
 
-<p className={`text-2xl w-12 h-full ${(notebody && title) ? "block" : "hidden"} h-full flex items-center justify-end`} onClick={() => {setEdit(false); setDB(notebody,note, noteData, setNoteData, todoData, setTodoData)}}>
+<p className={`text-2xl w-12 h-full ${(notebody || title) ? "block" : "hidden"} h-full flex items-center justify-end`} onClick={() => {setEdit(false); setDB(notebody,note, noteData, setNoteData, todoData, setTodoData)}}>
 <GrStatusGood />
 </p>
 </div>
 
 <div className="w-full relative h-full bg-gray-900 px-10 px-4">
-<Editor title={title} setTitle={setTitle} notebody={notebody} setBody={setBody} />
+<Editor note={note} title={title} setTitle={setTitle} notebody={notebody} setBody={setBody} />
 </div>
 
  </main>

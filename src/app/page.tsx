@@ -29,7 +29,32 @@ return (
 
 const Notes = ({noteData}) => {
 return (
+<>
+{ noteData.map(e => {
+return (
+<div className="bg-gray-50 flex flex-col gap-4 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+<p className='text-xl text-white'>{e}</p>
+<p className='text-sm text-gray-300'>8:00pm, November 8, 2024 </p>
 
+</div>
+)})
+}
+</>
+)
+}
+
+
+const Todos = ({todoData}) => {
+return (
+<>
+{ noteData.map(e => {
+return (
+<div className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+<p className='text-xl text-white'>{e}</p>
+</div>
+)})
+}
+</>
 )
 }
 
@@ -58,7 +83,13 @@ const [note, setNote] = useState(true)
 <p className="text-2xl">Notes</p>
 <SearchInput notes={note}/>
 
+<div className="w-full mt-8 px-6 h-auto">
+{
+ note ? ( <Notes noteData={noteData} />) : ( <Todos todoData={todoData} />)
 
+}
+
+ </div>
 
 </div>
 

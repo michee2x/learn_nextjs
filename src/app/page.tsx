@@ -60,7 +60,7 @@ return (
 )
 }
 const setTodo = (todoData:any, text: string, setTodoData:any) => {
-const newData = todoData.map((e:any) => e.text === text ? ({...e, isChecked:true}) : e)
+const newData = todoData.map((e:any) => e.text === text && e.isChecked === false ? ({...e, isChecked:true}) : e.text === text && e.isChecked === true ? ({...e, isChecked: false}) : e)
 setTodoData(newData)
 }
 

@@ -121,18 +121,38 @@ const [show, setShow] = useState(false)
 
 <p className="w-24 h-full flex items-center justify-between">
 <span><MdOutlineShare /></span>
-<span onClick={() => setShow(true)}><CiMenuKebab /></span>
+<span onClick={() => setShow(prev => !prev)}><CiMenuKebab /></span>
 
 </p>
 </div>
 
 <div className="w-full relative h-full bg-gray-900 px-10 px-4">
-<button type="submit" className={`${!show ? "h-0 w-0 hidden":"block w-32 h-14"} absolute top-1 rounded-lg bg-red-600 text-white flex items-center justify-center transition-all duration-500`}>delete</button>
+<button type="submit" className={`${!show ? "h-0 w-0":"w-32 h-14"} absolute top-1 rounded-lg right-2 bg-red-600 text-white flex items-center justify-center transition-all duration-500`}>delete</button>
 <p className="text-xs text-gray-200 mt-6 mb-4">{singleNote?.time}</p>
 <p className='text-lg text-gray-100'>{singleNote?.text}</p></div>
 
  </main>
 
+
+<main className={` w-screen min-h-screen bg-gray-900 text-gray-100`}>
+
+<div className="w-full h-16 flex items-center justify-between px-3"> 
+
+<p className="w-24 h-full flex items-center justify-between">
+<span onClick={() => setSingleNote({text:"",time:""})}><FaArrowLeft /></span>
+<span>Notes</span>
+</p>
+
+<p className="w-24 h-full flex items-center justify-between">
+<MdOutlineShare />
+</p>
+</div>
+
+<div className="w-full relative h-full bg-gray-900 px-10 px-4">
+textarea
+</div>
+
+ </main>
 </>
   )
 }

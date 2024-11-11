@@ -76,6 +76,14 @@ return (
 )
 }
 
+const setDB = (noteBody:any, note:any, noteData:any, setNoteData:any, todoData:any, setTodoData:any) => {
+if(note){
+setNoteData([...noteData, {text:noteBody, time:"8:00pm, November 8, 2024"}])
+} else {
+setTodoData([...todoData, noteBody)
+}
+
+}
 
 
 export default function Home() {
@@ -159,7 +167,7 @@ const [notebody, setBody] = useState("")
 <span>Edit</span>
 </p>
 
-<p className={`w-24 ${(notebody && title) ? "block" : "hidden"} h-full flex items-center justify-end`} onClick={() => setEdit(false)}>
+<p className={`w-24 ${(notebody && title) ? "block" : "hidden"} h-full flex items-center justify-end`} onClick={() => {setEdit(false); setDB(noteBody,note, noteData, setNoteData, todoData, setTodoData)}}>
 <GrStatusGood />
 </p>
 </div>

@@ -132,7 +132,7 @@ const [search, setSearch] = useState("")
 
 <div className="w-full bg-gray-900 text-gray-100 flex flex-col gap-8 min-h-screen">
 <p className="text-2xl">{note ? "Notes" : "To-do"}</p>
-<SearchInput noteData={noteData} todoData={todoData} setFiltered={setFiltered} notes={note} search={search} setSearch={setSearch} />
+<SearchInput noteData={noteData} todoData={todoData} setFiltered={setFiltered} notes={note} search={search} setSearch={setSearch} filtered={filtered} />
 
 <div className="w-full mt-6 flex flex-col gap-3 h-auto">
 {

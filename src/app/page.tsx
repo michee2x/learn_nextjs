@@ -67,7 +67,7 @@ return (
 { todoData.map((e: any) => {
 return (
 <div key={e.text} className="flex gap-2 items-center justify-center border text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full h-16 p-2.5  bg-gray-700 border-gray-600 placeholder-gray-400 text-white focus:ring-blue-500 focus:border-blue-500">
-                    <input checked={e.isChecked} onChange={() => setTodo(todoData, e.text, setTodoData)} type="checkbox" className="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500" />
+                    <input checked={e.isChecked} onChange={setTodo(todoData, e.text, setTodoData)} type="checkbox" className="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500" />
                     <label className="ml-3 min-w-0 flex-1 text-gray-200">{e?.text.slice(0, 30)}...</label>
 </div>
 )})

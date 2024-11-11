@@ -60,14 +60,7 @@ return (
 )
 }
 const setTodo = (todoData:any, text: string, setTodoData:any) => {
-const newData = todoData.map((item:any) => {
-  if (item.text === text) {
-    const updatedItem = { ...item };
-    updatedItem.text = text;
-    return updatedItem;
-  }
-  return item;
-});
+const newData = todoData.map((e:any) => e.text === text ? ({...e, isChecked:true}) : e)
 setTodoData(newData)
 }
 

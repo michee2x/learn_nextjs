@@ -150,7 +150,7 @@ const [notebody, setBody] = useState("")
  </main>
 
 
-<main className={`w-screen z-20 fixed top-0 bottom-0 right-0 left-0 min-h-screen bg-gray-900 text-gray-100`}>
+<main className={`w-screen ${edit ? "block" : "hidden"} z-20 fixed top-0 bottom-0 right-0 left-0 min-h-screen bg-gray-900 text-gray-100`}>
 
 <div className="w-full h-16 flex items-center justify-between px-3"> 
 

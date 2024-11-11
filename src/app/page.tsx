@@ -27,8 +27,26 @@ return (
 }
 
 
+const Notes = ({noteData}) => {
+return (
+
+)
+}
+
+
 
 export default function Home() {
+const [noteData, setNoteData] = useState(
+["this is the first note",
+"this is the second note",
+"this is the third note"]
+)
+
+const [todoData, setTodoData] = useState(
+["this is the first todo",
+"this is the second todo",
+"this is the third todo"]
+)
 
 const [note, setNote] = useState(true)
 

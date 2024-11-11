@@ -167,7 +167,7 @@ const [notebody, setBody] = useState("")
 <span>Edit</span>
 </p>
 
-<p className={`w-24 ${(notebody && title) ? "block" : "hidden"} h-full flex items-center justify-end`} onClick={() => {setEdit(false); setDB(noteBody,note, noteData, setNoteData, todoData, setTodoData)}}>
+<p className={`text-2xl w-12 h-full ${(notebody && title) ? "block" : "hidden"} h-full flex items-center justify-end`} onClick={() => {setEdit(false); setDB(noteBody,note, noteData, setNoteData, todoData, setTodoData)}}>
 <GrStatusGood />
 </p>
 </div>

@@ -127,7 +127,7 @@ const [show, setShow] = useState(false)
 </div>
 
 <div className="w-full relative h-full bg-gray-900 px-10 px-4">
-<button type="submit" className={`${!show ? "h-0 w-0 hidden":"block w-32 h-14"} absolute top-1 rounded-lg bg-red-600 text-white flex items-center justify-center`}>delete</button>
+<button type="submit" className={`${!show ? "h-0 w-0 hidden":"block w-32 h-14"} absolute top-1 rounded-lg bg-red-600 text-white flex items-center justify-center transition-all duration-500`}>delete</button>
 <p className="text-xs text-gray-200 mt-6 mb-4">{singleNote?.time}</p>
 <p className='text-lg text-gray-100'>{singleNote?.text}</p></div>
 

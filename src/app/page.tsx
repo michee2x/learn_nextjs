@@ -37,7 +37,7 @@ return (
   
 
 <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Your note</label>
-<textarea value={body} onChange={(e:any) => setBody(e.target.value)} rows="4" className="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Write your thoughts 🤔 here..."></textarea>
+<textarea value={notebody} onChange={(e:any) => setBody(e.target.value)} rows="4" className="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Write your thoughts 🤔 here..."></textarea>
 
 </>
 )
@@ -122,8 +122,6 @@ const [notebody, setBody] = useState("")
 <div className="w-full h-14 flex fixed  bottom-5 justify-between items-center text-white bg-primary-600 hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-10 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">
 <span className="text-2xl" onClick={() => setNote(true)}><GrNotes /></span>
 <span className="text-2xl" onClick={() => setNote(false)}><RiTodoFill /></span>
-
-</div>
 </div>
 </main>
 

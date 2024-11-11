@@ -93,6 +93,7 @@ const [todoData, setTodoData] = useState(
 const [note, setNote] = useState(true)
 const [singleNote, setSingleNote] = useState({text:"", time:""})
 const [show, setShow] = useState(false)
+const [edit, setEdit] = useState(false)
 
   return (
 <>
@@ -113,7 +114,7 @@ const [show, setShow] = useState(false)
 
 </div>
 
-<div className="w-14 text-[2rem] font-bold p-2 fixed bottom-12 mx-auto rounded-full bg-blue-400 text-white flex items-center justify-center h-14">+</div>
+<div onClick={() => setEdit(true)} className="w-14 text-[2rem] font-bold p-2 fixed bottom-12 mx-auto rounded-full bg-blue-400 text-white flex items-center justify-center h-14">+</div>
 
 <div className="w-full h-14 flex fixed  bottom-5 justify-between items-center text-white bg-primary-600 hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-10 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">
 <span className="text-2xl" onClick={() => setNote(true)}><GrNotes /></span>
@@ -147,13 +148,13 @@ const [show, setShow] = useState(false)
  </main>
 
 
-<main className={` w-screen min-h-screen bg-gray-900 text-gray-100`}>
+<main className={` w-screen z-20 fixed top-0 bottom-0 right-0 left-0 min-h-screen bg-gray-900 text-gray-100`}>
 
 <div className="w-full h-16 flex items-center justify-between px-3"> 
 
 <p className="w-24 h-full flex items-center justify-between">
-<span onClick={() => setSingleNote({text:"",time:""})}><FaArrowLeft /></span>
-<span>Notes</span>
+<span onClick={() => setEdit(false)}><FaArrowLeft /></span>
+<span>Edit</span>
 </p>
 
 <p className="w-24 h-full flex items-center justify-between">

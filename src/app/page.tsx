@@ -128,8 +128,8 @@ const [show, setShow] = useState(false)
 
 <div className="w-full relative h-full bg-gray-900 px-10 px-4">
 <button type="submit" className={`${show ? "right-[-50px]":"right-2"} w-32 absolute top-1 h-16 bg-blue-500 text-white flex items-center justify-center`}>delete</button>
-
-{singleNote}</div>
+<p className="text-xs text-gray-200 mt-6 mb-4">{singleNote.time}</p>
+<p className='text-lg text-gray-100'>{singleNote?.text}</p></div>
 
  </main>
 

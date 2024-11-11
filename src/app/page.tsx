@@ -134,7 +134,7 @@ const [search, setSearch] = useState("")
 
 <div className="w-full mt-6 flex flex-col gap-3 h-auto">
 {
- (note && !filtered.length) ? ( <Notes noteData={noteData} setSingleNote={setSingleNote} />) : (!note && !filtered.length) ? ( <Todos todoData={todoData} setTodoData={setTodoData} /> : (note && filter) ? ( <Notes noteData={filter} setSingleNote={setSingleNote} />) : (!note && filter) ? (<Todos todoData={filtered} setTodoData={setFiltered} />) : "nothing here 💀..." )
+ (note && !filtered.length) ? ( <Notes noteData={noteData} setSingleNote={setSingleNote} />) : (!note && !filtered.length) ? ( <Todos todoData={todoData} setTodoData={setTodoData} /> ) : (note && filter.length) ? ( <Notes noteData={filter} setSingleNote={setSingleNote} />) : (!note && filter.length) ? (<Todos todoData={filtered} setTodoData={setFiltered} />) : "nothing here 💀..." )
 
 }
 

@@ -50,7 +50,7 @@ return (
 { noteData.map((e: any, i: number) => {
 return (
 <div key={`${i}`} onClick={() => setSingleNote(e)} className="flex flex-col gap-2 border text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full min-h-16 p-2.5  bg-gray-700 border-gray-600 placeholder-gray-400 text-white focus:ring-blue-500 focus:border-blue-500">
-<p className='text-lg text-white'>{e.text.slice(0,30)}...</p>
+<p className='text-lg text-white'>{e.title.slice(0,30)}...</p>
 <p className='text-xs text-gray-300'>{e.time}</p>
 
 </div>
@@ -80,9 +80,9 @@ return (
 )
 }
 
-const setDB = (noteBody:any, note:any, noteData:any, setNoteData:any, todoData:any, setTodoData:any) => {
+const setDB = (title:string, noteBody:any, note:any, noteData:any, setNoteData:any, todoData:any, setTodoData:any) => {
 if(note){
-setNoteData([...noteData, {text:noteBody, time:"8:00pm, November 8, 2024",}])
+setNoteData([...noteData, {text:noteBody, time:"8:00pm, November 8, 2024", title: title}])
 } else {
 setTodoData([...todoData, {text:noteBody, isChecked:false}])
 }
@@ -171,7 +171,7 @@ const [notebody, setBody] = useState("")
 <span>Edit</span>
 </p>
 
-<p className={`text-2xl w-12 h-full ${(notebody || title) ? "block" : "hidden"} h-full flex items-center justify-end`} onClick={() => {setEdit(false); setDB(notebody,note, noteData, setNoteData, todoData, setTodoData)}}>
+<p className={`text-2xl w-12 h-full ${(notebody || title) ? "block" : "hidden"} h-full flex items-center justify-end`} onClick={() => {setEdit(false); setDB(title,notebody,note, noteData, setNoteData, todoData, setTodoData)}}>
 <GrStatusGood />
 </p>
 </div>

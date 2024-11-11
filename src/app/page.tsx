@@ -121,7 +121,7 @@ const [show, setShow] = useState(false)
 
 <p className="w-24 h-full flex items-center justify-between">
 <span><MdOutlineShare /></span>
-<span><CiMenuKebab /></span>
+<span onClick={() => setShow(true)}><CiMenuKebab /></span>
 
 </p>
 </div>

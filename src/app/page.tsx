@@ -49,7 +49,7 @@ return (
 <>
 { noteData.map((e: any, i: number) => {
 return (
-<div key={`${i}`} onClick={() => setSingleNote(e)} className="bg-gray-50 flex flex-col gap-2 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full min-h-16 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+<div key={`${i}`} onClick={() => setSingleNote(e)} className="flex flex-col gap-2 border text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full min-h-16 p-2.5  bg-gray-700 border-gray-600 placeholder-gray-400 text-white focus:ring-blue-500 focus:border-blue-500">
 <p className='text-lg text-white'>{e.text.slice(0,30)}...</p>
 <p className='text-xs text-gray-300'>{e.time}</p>
 
@@ -66,7 +66,7 @@ return (
 <>
 { todoData.map((e: string) => {
 return (
-<div key={e} className="bg-gray-50 flex gap-2 items-center justify-center border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full h-16 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+<div key={e} className="flex gap-2 items-center justify-center border text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full h-16 p-2.5  bg-gray-700 border-gray-600 placeholder-gray-400 text-white focus:ring-blue-500 focus:border-blue-500">
                     <input type="checkbox" className="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500" />
                     <label className="ml-3 min-w-0 flex-1 text-gray-200">{e.slice(0, 30)}...</label>
 </div>

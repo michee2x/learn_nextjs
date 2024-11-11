@@ -61,19 +61,24 @@ return (
 }
 
 
-const Todos = ({todoData} : any) => {
+const Todos = ({todoData, setTodoData} : any) => {
 return (
 <>
-{ todoData.map((e: string) => {
+{ todoData.map((e: any) => {
 return (
-<div key={e} className="flex gap-2 items-center justify-center border text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full h-16 p-2.5  bg-gray-700 border-gray-600 placeholder-gray-400 text-white focus:ring-blue-500 focus:border-blue-500">
-                    <input type="checkbox" className="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500" />
-                    <label className="ml-3 min-w-0 flex-1 text-gray-200">{e.slice(0, 30)}...</label>
+<div key={e.text} className="flex gap-2 items-center justify-center border text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full h-16 p-2.5  bg-gray-700 border-gray-600 placeholder-gray-400 text-white focus:ring-blue-500 focus:border-blue-500">
+                    <input checked={e.isChecked} onChange={() => setTodo(todoData, e.text, setTodoData)} type="checkbox" className="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500" />
+                    <label className="ml-3 min-w-0 flex-1 text-gray-200">{e?.text.slice(0, 30)}...</label>
 </div>
 )})
 }
 </>
 )
+}
+
+const setTodo = (todoData, text, setTodoData) => {
+const newData=todoData.map(i => i.text === text ? {...i, isChecked:true} : i)
+setTodoData(newData)
 }
 
 const setDB = (noteBody:any, note:any, noteData:any, setNoteData:any, todoData:any, setTodoData:any) => {
@@ -94,9 +99,9 @@ const [noteData, setNoteData] = useState(
 )
 
 const [todoData, setTodoData] = useState(
-["this is the first todo",
-"this is the second todo",
-"this is the third todo"]
+[ {text:"this is the first todo", isChecked=false},
+ {text:"this is the second todo", isChecked=false},
+ {text:"this is the third todo", isChecked=false}]
 )
 
 const [note, setNote] = useState(true)
@@ -117,7 +122,7 @@ const [notebody, setBody] = useState("")
 
 <div className="w-full mt-6 flex flex-col gap-3 h-auto">
 {
- note ? ( <Notes noteData={noteData} setSingleNote={setSingleNote} />) : ( <Todos todoData={todoData} />)
+ note ? ( <Notes noteData={noteData} setSingleNote={setSingleNote} />) : ( <Todos todoData={todoData} setTodoData={setTodoData} />)
 
 }
 

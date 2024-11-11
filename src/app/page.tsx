@@ -36,8 +36,8 @@ return (
 { noteData.map((e: string) => {
 return (
 <div key={e} onClick={() => setSingleNote(e)} className="bg-gray-50 flex flex-col gap-2 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full min-h-16 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-<p className='text-lg text-white'>{e.slice(0,30)}...</p>
-<p className='text-xs text-gray-300'>8:00pm, November 8, 2024 </p>
+<p className='text-lg text-white'>{e.text.slice(0,30)}...</p>
+<p className='text-xs text-gray-300'>{e.time}</p>
 
 </div>
 )})
@@ -66,9 +66,9 @@ return (
 
 export default function Home() {
 const [noteData, setNoteData] = useState(
-["this is the first note",
-"this is the second note",
-"this is the third note"]
+[{text:"this is the first note", time:"8:00pm, November 8, 2024"},
+{text:"this is the first note", time:"8:00pm, November 8, 2024"},
+{text:"this is the first note", time:"8:00pm, November 8, 2024"},]
 )
 
 const [todoData, setTodoData] = useState(
@@ -78,11 +78,12 @@ const [todoData, setTodoData] = useState(
 )
 
 const [note, setNote] = useState(true)
-const [singleNote, setSingleNote] = useState("")
+const [singleNote, setSingleNote] = useState({text:"", time:""})
+const [show, setShow] = useState(false)
 
   return (
 <>
-    <main className={`bg-gray-50 ${singleNote ? "hidden" : "block"} min-h-screen  w-screen bg-gray-900`}>
+    <main className={`bg-gray-50 ${singleNote.text || singleNote.time ? "hidden" : "block"} min-h-screen  w-screen bg-gray-900`}>
   <div className="flex flex-col items-center justify-center px-6 py-8 h-full w-full lg:py-0">
 
 <div className="w-full bg-gray-900 text-gray-100 flex flex-col gap-8 min-h-screen">
@@ -109,7 +110,7 @@ const [singleNote, setSingleNote] = useState("")
 </div>
 </main>
 
-<main className={`${singleNote ? "block" : "hidden"} w-screen min-h-screen bg-gray-900 text-gray-100`}>
+<main className={`${singleNote.text || singleNote.time ? "block" : "hidden"} w-screen min-h-screen bg-gray-900 text-gray-100`}>
 
 <div className="w-full h-16 flex items-center justify-between px-3"> 
 
@@ -125,7 +126,10 @@ const [singleNote, setSingleNote] = useState("")
 </p>
 </div>
 
-<div className="w-full h-full bg-gray-900 px-10 px-4">{singleNote}</div>
+<div className="w-full relative h-full bg-gray-900 px-10 px-4">
+<button type="submit" className={`${show ? "right-[-50px]":"right-2"} w-32 absolute top-1 h-16 bg-blue-500 text-white flex items-center justify-center`}>delete</p>
+
+{singleNote}</div>
 
  </main>
 

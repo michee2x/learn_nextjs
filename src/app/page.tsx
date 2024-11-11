@@ -109,7 +109,7 @@ const [notebody, setBody] = useState("")
   return (
 <>
     <main className={`bg-gray-50 ${(singleNote?.text || singleNote?.time) ? "hidden" : "block"} min-h-screen  w-screen bg-gray-900`}>
-  <div className="flex flex-col items-center justify-center px-6 py-8 h-full w-full lg:py-0">
+  <div className="flex flex-col items-center justify-center px-6 pt-8 pb-16 h-full w-full lg:py-0">
 
 <div className="w-full bg-gray-900 text-gray-100 flex flex-col gap-8 min-h-screen">
 <p className="text-2xl">{note ? "Notes" : "To-do"}</p>
@@ -125,9 +125,9 @@ const [notebody, setBody] = useState("")
 
 </div>
 
-<div onClick={() => setEdit(true)} className="w-14 z-10 text-[2rem] font-bold p-2 fixed bottom-12 mx-auto rounded-full bg-blue-400 text-white flex items-center justify-center h-14">+</div>
+<div onClick={() => setEdit(true)} className="w-14 z-10 text-[2rem] font-bold p-2 fixed bottom-7 mx-auto rounded-full bg-blue-500 text-white flex items-center justify-center h-14">+</div>
 
-<div className="w-full w-full h-14 flex fixed  bottom-5 justify-between items-center text-white bg-blue-400 hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-10 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">
+<div className="w-full w-full h-14 flex fixed  bottom-0 justify-between items-center text-white bg-blue-500 hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-10 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">
 <span className="text-2xl" onClick={() => setNote(true)}><GrNotes /></span>
 <span className="text-2xl" onClick={() => setNote(false)}><RiTodoFill /></span>
 </div>

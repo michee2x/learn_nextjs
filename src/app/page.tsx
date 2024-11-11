@@ -26,7 +26,7 @@ return (
 
 export default function Home() {
   return (
-    <main className="bg-gray-50 h-screen w-screen bg-gray-900">
+    <main className="bg-gray-50 min-h-screen w-screen bg-gray-900">
   <div className="flex flex-col items-center justify-center px-6 py-8 h-full w-full lg:py-0">
 
 <div className="w-full bg-gray-900 text-gray-100 flex flex-col gap-8 p-6 min-h-screen">
@@ -36,12 +36,11 @@ export default function Home() {
 
 
 </div>
-      
-      <div className="w-full h-14 flex fixed buttom-0 justify-between items-center text-white bg-primary-600 hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">
+</div>
+<div className="w-full h-14 flex fixed buttom-0 justify-between items-center text-white bg-primary-600 hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">
 <span className="text-2xl"><GrNotes /></span>
 <span className="text-2xl"><RiTodoFill /></span>
 
-</div>
 </div>
 </main>
   )

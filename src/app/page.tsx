@@ -1,13 +1,17 @@
+"use client"
+
+import { useState } from 'react';
 import Image from 'next/image'
 import {GrNotes} from 'react-icons/gr'
 import {RiTodoFill} from 'react-icons/ri'
 
 
-const SearchInput = () => {
+const SearchInput = ({notes}) => {
+
 return (
 
 <form className="flex items-center max-w-sm mx-auto">   
-    <label className="sr-only">Search</label>
+    <label className="sr-only">Search {note ? "notes" : "to-do"}</label>
     <div className="relative w-full">
         <input type="text" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Search Notes..." required />
     </div>
@@ -25,22 +29,25 @@ return (
 
 
 export default function Home() {
+
+const [note, setNote] = useState(true)
+
   return (
     <main className="bg-gray-50 min-h-screen w-screen bg-gray-900">
   <div className="flex flex-col items-center justify-center px-6 py-8 h-full w-full lg:py-0">
 
 <div className="w-full bg-gray-900 text-gray-100 flex flex-col gap-8 p-6 min-h-screen">
 <p className="text-2xl">Notes</p>
-<SearchInput />
+<SearchInput notes={note}/>
 
 
 
 </div>
 
 
-<div className="w-full h-14 flex fixed  bottom-5 justify-between items-center text-white bg-primary-600 hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">
-<span className="text-2xl"><GrNotes /></span>
-<span className="text-2xl"><RiTodoFill /></span>
+<div className="w-full h-14 flex fixed  bottom-5 justify-between items-center text-white bg-primary-600 hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-10 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">
+<span className="text-2xl" onClick={() => setNote(true)}><GrNotes /></span>
+<span className="text-2xl" onClick={() => setNote(false)}><RiTodoFill /></span>
 
 </div>
 </div>

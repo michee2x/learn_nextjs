@@ -33,8 +33,8 @@ return (
 <>
 { noteData.map((e: string) => {
 return (
-<div key={e} className="bg-gray-50 flex flex-col gap-4 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full h-16 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-<p className='text-xl text-white'>{e.slice(0,21)}...</p>
+<div key={e} className="bg-gray-50 flex flex-col gap-2 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full h-16 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+<p className='text-lg text-white'>{e.slice(0,30)}...</p>
 <p className='text-sm text-gray-300'>8:00pm, November 8, 2024 </p>
 
 </div>
@@ -52,7 +52,7 @@ return (
 return (
 <div key={e} className="bg-gray-50 flex gap-2 items-center justify-center border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full h-16 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                     <input type="checkbox" className="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500" />
-                    <label className="ml-3 min-w-0 flex-1 text-gray-500">{e.slice(0, 21)}...</label>
+                    <label className="ml-3 min-w-0 flex-1 text-gray-200">{e.slice(0, 30)}...</label>
 </div>
 )})
 }
@@ -95,6 +95,7 @@ const [note, setNote] = useState(true)
 
 </div>
 
+<div className="w-14 text-2xl p-2 absolute bottom-12 mx-auto rounded-full bg-blue-400 text-white flex items-center justify-center h-14">+</div>
 
 <div className="w-full h-14 flex fixed  bottom-5 justify-between items-center text-white bg-primary-600 hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-10 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">
 <span className="text-2xl" onClick={() => setNote(true)}><GrNotes /></span>
